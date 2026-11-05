@@ -1,6 +1,6 @@
 # BookBattle — Unofficial OBOB Practice Hub
 
-An interactive, mobile-friendly React + Vite + TypeScript prototype for Oregon Battle of the Books, starting with *The Witch Boy*.
+An interactive, mobile-friendly React + Vite + TypeScript prototype for Oregon Battle of the Books, with practice for all 16 titles in the 2026–27 Grades 3–5 library.
 
 ## Run locally
 
@@ -42,7 +42,7 @@ Select **Save and Deploy**. After the build succeeds, share the project's `pages
 
 ## Features
 
-- Mobile-friendly homepage and 16-title library listing
+- Mobile-friendly book picker with title and author drills for all 16 titles and story questions for The Witch Boy
 - Working solo and 15-second speed quizzes
 - Correct/incorrect feedback and answer explanations
 - Results and session history stored locally in the browser
@@ -66,3 +66,4 @@ No backend or tracking. Session history is stored in `localStorage` on each devi
 - Secure backend for cross-device progress
 
 Not affiliated with Oregon Battle of the Books.
+"# bookbattle-obob" 

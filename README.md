@@ -47,15 +47,24 @@ Select **Save and Deploy**. After the build succeeds, share the project's `pages
 - Correct/incorrect feedback and answer explanations
 - Results and session history stored locally in the browser
 - Review missed questions, question flags (local session only)
-- No account, server, or database required
+- Anonymous practice works without a database. Shared student progress uses Cloudflare D1.
 
 ## IMPORTANT — question quality
 
 All included questions are **original demo drafts**, not official OBOB questions. Before sharing competitively, have a parent/coach verify each question, answer and explanation against a legitimate copy of the book. The prototype intentionally labels questions as drafts. Do not upload copyrighted official competition question sets.
 
+## Shared student progress and admin setup
+
+1. Create a Cloudflare D1 database for BookBattle and run the SQL in `schema.sql` in its console.
+2. In the existing Pages project settings, bind that database to Production as `PROGRESS_DB`.
+3. Add a Production secret named `ADMIN_RESET_KEY` with a long, randomly generated value. Keep it in your password manager and out of Git.
+4. Deploy the updated code after saving the binding and secret. Open `/admin`, select **Set or reset password**, enter the reset key, and set an admin password of at least 12 characters. Use the same reset form to change it later.
+
+Students can save a first name or nickname from the book library. This shares the current reading checklist and future quiz scores. Each browser profile is tracked separately. The admin dashboard shows finished titles, quiz totals, scores, and last activity. Reopen the dashboard and sign in again to load fresh results.
+
 ## Privacy
 
-No backend or tracking. Session history is stored in `localStorage` on each device. Clearing browser data clears progress. No cross-device synchronization or team accounts are implemented in this MVP.
+Quiz history is saved locally. Saving a name opts that browser into sharing progress with the admin, using a randomly generated browser identifier. Use nicknames for shared progress. Use separate browser profiles for students on a shared device. Clearing browser storage disconnects that device from its existing student record. The D1 records persist until the database owner removes them.
 
 ## Future work
 
@@ -63,7 +72,6 @@ No backend or tracking. Session history is stored in `localStorage` on each devi
 - Coach-managed team codes and private leaderboards
 - Short-answer questions, title/author identification
 - Accessible timer controls and keyboard shortcuts
-- Secure backend for cross-device progress
 
 Not affiliated with Oregon Battle of the Books.
 "# bookbattle-obob" 
